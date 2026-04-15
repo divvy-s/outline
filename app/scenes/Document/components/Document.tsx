@@ -375,11 +375,14 @@ class DocumentScene extends React.Component<Props> {
   };
 
   autosave = debounce(
-    () =>
+    () => {
+      if (this.isEditorDirty) return; // Silent abort on active changes
+      
       this.onSave({
         done: false,
         autosave: true,
-      }),
+      });
+    },
     AUTOSAVE_DELAY
   );
 
@@ -388,7 +391,7 @@ class DocumentScene extends React.Component<Props> {
     const doc = this.editor.current?.view.state.doc;
 
     this.isEditorDirty = !isEqual(doc?.toJSON(), document.data);
-    this.isEmpty = (!doc || ProsemirrorHelper.isEmpty(doc)) && !this.title;
+    this.isEmpty = (!doc || ProsemirrorHelper.isEmpty(doc)) && !this.title.trim();
   });
 
   updateIsDirtyDebounced = debounce(this.updateIsDirty, 500);
@@ -483,6 +486,7 @@ class DocumentScene extends React.Component<Props> {
     } as React.CSSProperties;
 
     return (
+      <React.Fragment>
       <ErrorBoundary showTitle>
         <RegisterKeyDown trigger="m" handler={this.onMove} />
         <RegisterKeyDown trigger="z" handler={this.onUndoRedo} />
@@ -537,7 +541,7 @@ class DocumentScene extends React.Component<Props> {
               fullWidth={document.fullWidth}
               tocPosition={tocPos}
               style={fullWidthTransformOffsetStyle}
-            >
+              >
               <React.Suspense
                 fallback={
                   <EditorContainer
@@ -564,7 +568,7 @@ class DocumentScene extends React.Component<Props> {
                       id={revision.id}
                     />
                   ) : (
-                    <>
+                    <React.Fragment>
                       <Notices document={document} readOnly={readOnly} />
 
                       {showContents && (
@@ -572,6 +576,7 @@ class DocumentScene extends React.Component<Props> {
                           <Contents />
                         </PrintContentsContainer>
                       )}
+                      <Container style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999, background: "transparent" }} />
                       <Editor
                         id={document.id}
                         key={embedsDisabled ? "disabled" : "enabled"}
@@ -600,7 +605,7 @@ class DocumentScene extends React.Component<Props> {
                           <References document={document} />
                         </ReferencesWrapper>
                       </Editor>
-                    </>
+                    </React.Fragment>
                   )}
                 </MeasuredContainer>
                 {showContents && (
@@ -617,6 +622,7 @@ class DocumentScene extends React.Component<Props> {
           </Container>
         </MeasuredContainer>
       </ErrorBoundary>
+  </React.Fragment>
     );
   }
 }

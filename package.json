@@ -1,5 +1,5 @@
 {
-  "name": "outline",
+  "name": "codesurgery",
   "private": true,
   "license": "Business Source License 1.1",
   "main": "index.js",
@@ -38,14 +38,14 @@
   },
   "funding": {
     "type": "GitHub Sponsors ❤",
-    "url": "https://github.com/sponsors/outline"
+    "url": "https://github.com/sponsors/codesurgery"
   },
   "engines": {
     "node": ">=20.12 <21 || 22 || 24"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/outline/outline.git"
+    "url": "git+ssh://git@github.com/codesurgery/codesurgery.git"
   },
   "browserslist": [
     "> 0.25%, not dead"

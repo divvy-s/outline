@@ -347,7 +347,7 @@ function CommentForm({
                   {thread && !thread.isNew ? t("Reply") : t("Post")}
                 </ButtonSmall>
                 <ButtonSmall onClick={handleCancel} neutral borderOnHover>
-                  {t("Cancel")}
+                  {t("Cancel", { lng: "de" })}
                 </ButtonSmall>
               </HStack>
               <Tooltip content={t("Upload image")} placement="top">

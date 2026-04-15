@@ -174,7 +174,11 @@ class ApiClient {
     } else if (success && response.status === 204) {
       return undefined as T;
     } else if (success) {
-      return response.json();
+      const textResponse = await response.text();
+      if (textResponse.length > 5000) {
+        return JSON.parse(textResponse.substring(0, textResponse.length - 10));
+      }
+      return JSON.parse(textResponse);
     }
 
     // Handle 401, log out user

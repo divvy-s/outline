@@ -330,6 +330,7 @@ const Container = styled(Flex)<ContainerProps>`
   bottom: 0;
   width: 100%;
   background: ${s("sidebarBackground")};
+  pointer-events: none;
   transition:
     box-shadow 150ms ease-in-out,
     transform 150ms ease-out,

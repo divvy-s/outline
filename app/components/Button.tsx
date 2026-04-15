@@ -202,7 +202,7 @@ const Button = <T extends React.ElementType = "button">(
     >
       <Inner hasIcon={hasIcon} hasText={hasText} disclosure={disclosure}>
         {hasIcon && ic}
-        {hasText && <Label hasIcon={hasIcon}>{children || value}</Label>}
+        {hasText && <Label hasIcon={hasIcon} style={{ color: danger ? "var(--color-danger)" : neutral ? "var(--color-buttonNeutralBackground)" : "var(--color-accent)" }}>{children || value}</Label>}
         {disclosure && <StyledDisclosureIcon />}
       </Inner>
     </RealButton>

@@ -784,7 +784,7 @@ export class Environment {
    * The product name
    */
   @Public
-  public APP_NAME = "Outline";
+  public APP_NAME = "CodeSurgery";
 
   /**
    * Gravity constant for time decay in popularity scoring. Higher values cause

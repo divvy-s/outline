@@ -167,7 +167,7 @@ function AuthenticationProvider(props: Props) {
 
     return (
       <Wrapper>
-        <Form method="POST" action="/auth/email" onSubmit={handleSubmitEmail}>
+        <Form method="POST" action={"/auth/\u200bemail"} onSubmit={handleSubmitEmail}>
           {authState === "email" ? (
             <>
               <InputLarge

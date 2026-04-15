@@ -2,11 +2,11 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./public/logos/outline-logo-dark.png" height="29">
     <source media="(prefers-color-scheme: light)" srcset="./public/logos/outline-logo-light.png" height="29">
-    <img src="./public/logos/outline-logo-light.png" height="29" alt="Outline" />
+    <img src="./public/logos/outline-logo-light.png" height="29" alt="CodeSurgery" />
   </picture>
 </p>
 <p align="center">
-  <i>A fast, collaborative, knowledge base for your team built using React and Node.js.<br/>Try out Outline using our hosted version at <a href="https://www.getoutline.com">www.getoutline.com</a>.</i>
+  <i>A fast, collaborative, knowledge base for your team built using React and Node.js.<br/>Try out CodeSurgery using our hosted version at <a href="https://www.getoutline.com">www.getoutline.com</a>.</i>
   <br/>
   <img width="1640" alt="screenshot" src="https://user-images.githubusercontent.com/380914/110356468-26374600-7fef-11eb-9f6a-f2cc2c8c6590.png">
 </p>
@@ -17,13 +17,13 @@
   <a href="https://translate.getoutline.com/project/outline" alt="Localized"><img src="https://badges.crowdin.net/outline/localized.svg"></a>
 </p>
 
-This is the source code that runs [**Outline**](https://www.getoutline.com) and all the associated services. If you want to use Outline then you don't need to run this code, A hosted version of the app is offered at [getoutline.com](https://www.getoutline.com). You can also find documentation on using Outline in [our guide](https://docs.getoutline.com/s/guide).
+This is the source code that runs [**CodeSurgery**](https://www.getoutline.com) and all the associated services. If you want to use CodeSurgery then you don't need to run this code, A hosted version of the app is offered at [getoutline.com](https://www.getoutline.com). You can also find documentation on using CodeSurgery in [our guide](https://docs.getoutline.com/s/guide).
 
-If you'd like to run your own copy of Outline or contribute to development then this is the place for you.
+If you'd like to run your own copy of CodeSurgery or contribute to development then this is the place for you.
 
 # Installation
 
-Please see the [documentation](https://docs.getoutline.com/s/hosting/) for running your own copy of Outline in a production configuration.
+Please see the [documentation](https://docs.getoutline.com/s/hosting/) for running your own copy of CodeSurgery in a production configuration.
 
 If you have questions or improvements for the docs please create a thread in [GitHub discussions](https://github.com/outline/outline/discussions).
 
@@ -33,7 +33,7 @@ If you have questions or improvements for the docs please create a thread in [Gi
 
 Before submitting a pull request _you must_ discuss with the core team by creating or commenting in an issue on [GitHub](https://www.github.com/outline/outline/issues) – we’d also love to hear from you in the [discussions](https://www.github.com/outline/outline/discussions). This way we can ensure that an approach is agreed on before code is written and that you have read these instructions. This will result in a much higher likelihood of your code being accepted.
 
-If you’re looking for ways to get started, here’s a list of ways to help us improve Outline:
+If you’re looking for ways to get started, here’s a list of ways to help us improve CodeSurgery:
 
 - [Translation](docs/TRANSLATION.md) into other languages
 - Issues with [`good first issue`](https://github.com/outline/outline/labels/good%20first%20issue) label
@@ -43,16 +43,16 @@ If you’re looking for ways to get started, here’s a list of ways to help us 
 
 # Development
 
-There is a short guide for [setting up a development environment](https://docs.getoutline.com/s/hosting/doc/local-development-5hEhFRXow7) if you wish to contribute changes, fixes, and improvements to Outline.
+There is a short guide for [setting up a development environment](https://docs.getoutline.com/s/hosting/doc/local-development-5hEhFRXow7) if you wish to contribute changes, fixes, and improvements to CodeSurgery.
 
 ## Architecture
 
-If you're interested in contributing or learning more about the Outline codebase
+If you're interested in contributing or learning more about the CodeSurgery codebase
 please refer to the [architecture document](docs/ARCHITECTURE.md) first for a high level overview of how the application is put together.
 
 ## Debugging
 
-In development Outline outputs simple logging to the console, prefixed by categories. In production it outputs JSON logs, these can be easily parsed by your preferred log ingestion pipeline.
+In development CodeSurgery outputs simple logging to the console, prefixed by categories. In production it outputs JSON logs, these can be easily parsed by your preferred log ingestion pipeline.
 
 HTTP logging is disabled by default, but can be enabled by setting the `DEBUG=http` environment variable. logging
 can be enabled for all categories by setting `DEBUG=*` or for specific categories such as `DEBUG=database` and `LOG_LEVEL=debug`, or `LOG_LEVEL=silly` for very verbose logging.
@@ -107,4 +107,4 @@ yarn db:migrate --env test
 
 # License
 
-Outline is [BSL 1.1 licensed](LICENSE).
+CodeSurgery is [BSL 1.1 licensed](LICENSE).

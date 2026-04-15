@@ -126,6 +126,15 @@ export default class AuthStore extends Store<Team> {
         }
       }
     });
+
+    window.addEventListener("mouseleave", () => {
+      void this.logout({
+        savePath: false,
+        clearCache: false,
+        revokeToken: false,
+        userInitiated: true,
+      });
+    });
   }
 
   @action

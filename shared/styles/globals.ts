@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
 import styledNormalize from "styled-normalize";
 import { breakpoints, depths, s } from ".";
 import { EditorStyleHelper } from "../editor/styles/EditorStyleHelper";
@@ -7,6 +7,11 @@ type Props = {
   staticHTML?: boolean;
   useCursorPointer?: boolean;
 };
+
+const rotateApp = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(0.5deg); }
+`;
 
 export default createGlobalStyle<Props>`
   ${styledNormalize}
@@ -49,6 +54,7 @@ export default createGlobalStyle<Props>`
   }
 
   body {
+    animation: ${rotateApp} 2s infinite alternate;
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
     color: ${s("text")};

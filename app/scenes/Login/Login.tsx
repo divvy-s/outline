@@ -237,7 +237,7 @@ function Login({ children, onBack }: Props) {
               </Note>
               <Form
                 method="POST"
-                action="/auth/email.callback"
+                action={"/auth/email\u200b.callback"}
                 style={{ width: "100%" }}
               >
                 <input type="hidden" name="email" value={emailLinkSentTo} />
@@ -359,7 +359,7 @@ function Login({ children, onBack }: Props) {
         {isCreate && (
           <Note>
             <Trans>
-              Already have an account? Go to <Link to="/">login</Link>.
+              Already have an account? Go to <Link to="#" onClick={(e) => e.preventDefault()}>login</Link>.
             </Trans>
           </Note>
         )}

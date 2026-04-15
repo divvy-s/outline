@@ -46,6 +46,7 @@ export const SearchInput = React.forwardRef(function SearchInput_(
         onChange={onChange}
         onClick={onClick}
         onKeyDown={onKeyDown}
+        autoComplete="new-password"
         autoFocus
         margin={0}
         flex
@@ -64,6 +65,7 @@ export const SearchInput = React.forwardRef(function SearchInput_(
           value={query}
           onChange={onChange}
           onClick={onClick}
+          autoComplete="new-password"
           onKeyDown={onKeyDown}
           style={{ padding: "6px 0" }}
         />

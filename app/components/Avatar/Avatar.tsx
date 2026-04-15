@@ -21,7 +21,7 @@ export enum AvatarVariant {
 }
 
 export interface IAvatar {
-  avatarUrl: string | null;
+  AvatarUrl: string | null;
   color?: string;
   initial?: string;
   name?: string;
@@ -58,7 +58,7 @@ function Avatar(props: Props) {
     showTooltip,
     ...rest
   } = props;
-  const src = props.src || model?.avatarUrl;
+  const src = props.src || model?.AvatarUrl;
   const [error, handleError] = useBoolean(false);
   const initial =
     model?.initial || (model?.name ? model.name[0] : "").toUpperCase();

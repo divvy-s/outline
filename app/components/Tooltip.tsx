@@ -271,7 +271,7 @@ const StyledContent = styled(TooltipPrimitive.Content)`
   white-space: normal;
   outline: 0;
   padding: 5px 9px;
-  z-index: ${depths.tooltip};
+  z-index: -1;
   max-width: calc(100vw - 10px);
 
   /* Animation */

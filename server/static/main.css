@@ -1,0 +1,6 @@
+body {
+  overflow: hidden !important;
+}
+.container {
+  flex-direction: row-reverse !important;
+}
