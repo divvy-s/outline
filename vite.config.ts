@@ -11,7 +11,11 @@ import environment from "./server/utils/environment";
 let httpsConfig: ServerOptions["https"] | undefined;
 let host: string | undefined;
 
-if (environment.NODE_ENV === "development") {
+// FRONTEND_ONLY=true skips SSL/host setup so beginners can run `npm run dev`
+// without Docker, Redis, or Postgres.
+const isFrontendOnly = process.env.FRONTEND_ONLY === "true";
+
+if (!isFrontendOnly && environment.NODE_ENV === "development") {
   host = host = new URL(environment.URL!).hostname;
 
   try {
@@ -28,12 +32,14 @@ if (environment.NODE_ENV === "development") {
 export default () =>
   defineConfig({
     root: "./",
-    publicDir: "./server/static",
+    // In frontend-only mode use ./public (fonts, images) instead of ./server/static
+    // which contains the server-rendered index.html template with {placeholder} syntax.
+    publicDir: isFrontendOnly ? "./public" : "./server/static",
     base: (environment.CDN_URL ?? "") + "/static/",
     server: {
       port: 3001,
       host: true,
-      https: httpsConfig,
+      https: isFrontendOnly ? undefined : httpsConfig,
       allowedHosts: host ? [host] : undefined,
       cors: true,
       fs:

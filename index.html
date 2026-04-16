@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Codesurgery</title>
+    <meta name="theme-color" content="#FFF" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="description" content="A modern team knowledge base" />
+    <meta name="darkreader-lock" />
+    <link rel="stylesheet" href="/main.css" />
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-display: swap;
+        font-feature-settings: "ss03", "cv05";
+        src: url("/fonts/Inter.var.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-display: swap;
+        font-feature-settings: "ss03", "cv05";
+        font-style: italic;
+        src: url("/fonts/Inter-italic.var.woff2") format("woff2");
+      }
+      body, html { margin: 0; padding: 0; }
+      body { display: flex; width: 100%; height: 100%; }
+      @media print { body { display: block; } }
+      #root { flex: 1; min-height: 100%; width: 100%; }
+      .screenreader-only {
+        clip: rect(0 0 0 0); clip-path: inset(50%);
+        height: 1px; overflow: hidden; position: absolute;
+        white-space: nowrap; width: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Mock window.env for frontend-only development (no backend/Docker/Redis needed) -->
+    <script>
+      window.env = {
+        URL: "http://localhost:3001",
+        COLLABORATION_URL: "",
+        CDN_URL: "",
+        APP_NAME: "Codesurgery",
+        ENVIRONMENT: "development",
+        VERSION: "develop",
+        SENTRY_DSN: "",
+        SENTRY_TUNNEL: "",
+        DEFAULT_LANGUAGE: "en_US",
+        GOOGLE_ANALYTICS_ID: "",
+        SLACK_APP_ID: "",
+        SLACK_CLIENT_ID: "",
+        SLACK_MESSAGE_ACTIONS: "",
+        MAXIMUM_IMPORT_SIZE: "5120000",
+        SUBDOMAINS_ENABLED: "false",
+        TEAM_LOGO: "",
+        PDF_EXPORT_ENABLED: "false",
+        DEPLOYMENT: "",
+      };
+    </script>
+
+    <script type="module" src="/app/index.tsx"></script>
+  </body>
+</html>
